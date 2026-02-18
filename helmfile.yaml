@@ -1,8 +1,8 @@
 repositories:
   - name: harbor
     url: https://helm.goharbor.io
-  # - name: argo
-  #   url: https://argoproj.github.io/argo-helm
+  - name: argo
+    url: https://argoproj.github.io/argo-helm
 
 releases:
 - name: harbor
@@ -13,10 +13,10 @@ releases:
   values:
     - values/harbor/values.yaml
 
-# - name: argocd
-#   namespace: argocd
-#   createNamespace: true
-#   chart: argo/argo-cd
-#   version: 6.2.3
-#   values:
-#     - values/argocd/values.yaml
+- name: argocd
+  namespace: argocd
+  createNamespace: true
+  chart: argo/argo-cd
+  version: 9.4.0
+  values:
+    - values/argocd/values.yaml
