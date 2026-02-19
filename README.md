@@ -23,6 +23,8 @@ Este projeto utiliza:
 4 - Após o BUILD e PUSH para o resgitry, então é feito um COMMIT e um PUSH para o repositório de gitops, alterando a TAG da imagem no values.yaml da aplicação, para que o ArgoCD, que está também instalado no EKS identifique a mudança e faça o Deploy no cluster EKS. Portanto o deploy fica automatizado.
 
 ---
+#### A ideia de melhoria do projeto é aplicar Checkov + OPA (open policy agent) no código de setup da infra, ou seja nesse repo.
+---
 
 Repositório da aplicação deployada no EKS: <br>
 https://github.com/fabriciocdn/simple_app
@@ -41,6 +43,3 @@ https://github.com/fabriciocdn/terraform_aws_eks
 ### Diagrama de Arquitetura
 
 ![Arquitetura](images/aws-devops-project.drawio.png)
-
-
-#### A ideia de melhoria do projeto é aplicar Checkov + OPA (open policy agent) no código de setup da infra, ou seja nesse repo.
