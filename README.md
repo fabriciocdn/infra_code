@@ -38,3 +38,4 @@ https://github.com/fabriciocdn/terraform_aws_eks
 1 - O desenvolvedor faz alteração no código da aplicação e faz o push. <br>
 2 - Ao fazer o push, o código da aplicação e o Dockerfile passa por uma esteira de Scans de vulnerabilidade. <br>
 3 - Ao passar pelos jobs acima, é feito o Build e um scan da imagem e um push para o Harbor, o registry de imagens docker privado, que está instalado no EKS. <br>
+4 - Após passar pelos jobs de scan, build e push para o resgitry, é feito um commit e um push para o repositório de gitops, alterando a tag da imagem no values.yaml da aplicação, para que o ArgoCD que está também instalado no EKS identifique a mudança e faça o Deploy no cluster EKS. Portanto o deploy fica automatizado.
