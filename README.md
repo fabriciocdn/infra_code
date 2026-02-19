@@ -17,10 +17,10 @@ Este projeto utiliza:
 # Explicação do Projeto
 
 ### A ideia do projeto é apresentar o deploy de uma aplicação na infra kubernetes da AWS. <br>
-1 - O desenvolvedor faz alteração no código da aplicação e faz o push. <br> <br>
-2 - Ao fazer o push, o código da aplicação e o Dockerfile passa por uma pipeline, que tem Scans de vulnerabilidade.<br> <br>
-3 - Build e um scan da imagem e um push para o Harbor, o registry de imagens docker privado, que está instalado no EKS. <br> <br>
-4 - Build e push para o resgitry, então é feito um commit e um push para o repositório de gitops, alterando a tag da imagem no values.yaml da aplicação, para que o ArgoCD que está também instalado no EKS identifique a mudança e faça o Deploy no cluster EKS. Portanto o deploy fica automatizado.
+1 - O desenvolvedor faz alteração no código da aplicação e faz o PUSH. <br> <br>
+2 - Ao fazer PUSH, o código da aplicação e o Dockerfile passa por uma pipeline, que tem Scans de vulnerabilidades.<br> <br>
+3 - BUILD, e Após o BUILD a imagem passa por um scan e depois PUSH para o Harbor, o registry de imagens docker privado, que está instalado no EKS. <br> <br>
+4 - Após o BUILD e PUSH para o resgitry, então é feito um COMMIT e um PUSH para o repositório de gitops, alterando a TAG da imagem no values.yaml da aplicação, para que o ArgoCD, que está também instalado no EKS identifique a mudança e faça o Deploy no cluster EKS. Portanto o deploy fica automatizado.
 
 ---
 
