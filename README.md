@@ -40,6 +40,6 @@ https://github.com/fabriciocdn/terraform_aws_eks
 
 ---
 
-### Diagrama de Arquitetura da infra na AWS
+### Diagrama da Arquitetura da infra na AWS
 
 ![Arquitetura](images/aws-devops-project.drawio.png)
