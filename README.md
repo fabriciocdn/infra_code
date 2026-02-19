@@ -1,4 +1,4 @@
-# Projeto Iac + DevOPS + AWS
+# Projeto DevOps: CI/CD + IaC + AWS
 
 Este projeto utiliza:
 
