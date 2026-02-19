@@ -41,3 +41,6 @@ https://github.com/fabriciocdn/terraform_aws_eks
 ### Diagrama de Arquitetura
 
 ![Arquitetura](images/aws-devops-project.drawio.png)
+
+
+#### A ideia de melhoria do projeto é aplicar Checkov + OPA (open policy agent)
