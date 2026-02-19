@@ -4,7 +4,6 @@
 .terraform.lock.hcl
 habor-config
 Vagrantfile
-LICENSE
 # .tfstate files
 *.tfstate
 *.tfstate.*
