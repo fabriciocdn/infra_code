@@ -28,7 +28,7 @@ expose:
       secretName: ""
   ingress:
     hosts:
-      core: k8s-harbor-harborin-4d2318ffc8-557160726.us-east-1.elb.amazonaws.com    # set to the type of ingress controller if it has specific requirements.
+      core: url-aws.elb.amazonaws.com    # set to the type of ingress controller if it has specific requirements.
     # leave as `default` for most ingress controllers.
     # set to `gce` if using the GCE ingress controller
     # set to `ncp` if using the NCP (NSX-T Container Plugin) ingress controller
@@ -122,7 +122,7 @@ expose:
 #
 # If Harbor is deployed behind the proxy, set it as the URL of proxy
 # adicionar a url criada pelo alb da aws (problema de senha do harbor)
-externalURL: http://k8s-harbor-harborin-4d2318ffc8-557160726.us-east-1.elb.amazonaws.com
+externalURL: http://url-aws.elb.amazonaws.com
 
 # The persistence is enabled by default and a default StorageClass
 # is needed in the k8s cluster to provision volumes dynamically.
