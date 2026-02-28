@@ -1,6 +1,6 @@
 # 1. Criar a Política de Acesso ao S3
 resource "aws_iam_policy" "harbor_s3_policy" {
-  name        = "HarborS3StoragePolicy"
+  name = "HarborS3StoragePolicy"
 
   policy = jsonencode({
     Version = "2012-10-17"

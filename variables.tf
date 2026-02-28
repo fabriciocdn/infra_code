@@ -17,13 +17,13 @@ variable "vpc_cidr" {
 }
 
 # S3
-variable "s3_bucket_name" { 
+variable "s3_bucket_name" {
   description = "Name of the S3 bucket"
   type        = string
 }
 
 # node group mng
-variable "instance_types" { 
+variable "instance_types" {
   description = "Instance type for the EKS managed node group"
   type        = list(string)
 }

@@ -42,7 +42,7 @@ crds:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: url-aws.elb.amazonaws.com
+  domain: argocd.lab.aws
 
   # -- Runtime class name for all components
   runtimeClassName: ""
@@ -2424,6 +2424,7 @@ server:
     # -- Additional ingress annotations
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-1-ssl-passthrough
     annotations:
+      alb.ingress.kubernetes.io/group.name: "alb-apps-tools"
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/target-type: ip
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
@@ -2435,7 +2436,7 @@ server:
 
     # -- Argo CD server hostname
     # @default -- `""` (defaults to global.domain)
-    hostname: url-aws.elb.amazonaws.com
+    hostname: argocd.lab.aws
 
     # -- The path to Argo CD server
     path: /

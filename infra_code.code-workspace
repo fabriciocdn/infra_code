@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "infra_code",
+			"path": "."
+		},
+		{
+			"name": "values",
+			"path": "../../Downloads/projeto_completo/values"
+		}
+	],
+	"settings": {}
+}
