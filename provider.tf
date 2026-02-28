@@ -1,13 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 terraform {
-
-  backend "s3" {
-    bucket = "s3-devops-lab"
-    key    = "infra-code-project-1/terraform.tfstate"
-    region = "us-east-1"
-  }
-
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"

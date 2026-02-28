@@ -1,6 +1,7 @@
 # Local .terraform directories
 .terraform/
 .vagrant/
+.terraform.lock.hcl
 habor-config
 Vagrantfile
 # .tfstate files
