@@ -19,30 +19,24 @@ resource "aws_iam_policy" "harbor_s3_policy" {
   })
 }
 
-resource "aws_iam_role" "harbor_s3_role" {
-  name = "harbor-s3-role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Principal = {
-          Federated = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/${module.eks-cluster.oidc}"
-        }
-        Action = "sts:AssumeRoleWithWebIdentity"
-        Condition = {
-          StringEquals = {
-            "${module.eks-cluster.oidc}:sub" = "system:serviceaccount:harbor:harbor-registry-sa"
-            "${module.eks-cluster.oidc}:aud" = "sts.amazonaws.com"
-          }
-        }
-      }
-    ]
-  })
+resource "aws_iam_user" "harbor_user" {
+  name = "harbor-s3-user"
 }
 
-resource "aws_iam_role_policy_attachment" "harbor_s3_attach" {
-  role       = aws_iam_role.harbor_s3_role.name
+resource "aws_iam_access_key" "harbor_keys" {
+  user = aws_iam_user.harbor_user.name
+}
+
+resource "aws_iam_user_policy_attachment" "harbor_static_attach" {
+  user       = aws_iam_user.harbor_user.name
   policy_arn = aws_iam_policy.harbor_s3_policy.arn
+}
+
+output "harbor_s3_access_key" {
+  value = aws_iam_access_key.harbor_keys.id
+}
+
+output "harbor_s3_secret_key" {
+  value     = aws_iam_access_key.harbor_keys.secret
+  sensitive = true
 }

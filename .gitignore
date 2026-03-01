@@ -4,6 +4,8 @@
 .terraform.lock.hcl
 habor-config
 Vagrantfile
+doc_ths.txt
+node-eks.yaml
 # .tfstate files
 *.tfstate
 *.tfstate.*

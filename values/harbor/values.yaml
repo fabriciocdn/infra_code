@@ -45,7 +45,7 @@ expose:
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
       # # note different ingress controllers may require a different ssl-redirect annotation
       # # for Envoy, use ingress.kubernetes.io/force-ssl-redirect: "true" and remove the nginx lines below
-      # ingress.kubernetes.io/ssl-redirect: "false"
+      ingress.kubernetes.io/ssl-redirect: "false"
       # ingress.kubernetes.io/proxy-body-size: "0"
       # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
     # ingress-specific labels
@@ -196,7 +196,7 @@ persistence:
     # Refer to
     # https://github.com/distribution/distribution/blob/release/2.8/docs/configuration.md#redirect
     # for the detail.
-    disableredirect: false
+    disableredirect: true
     # Specify the "caBundleSecretName" if the storage service uses a self-signed certificate.
     # The secret must contain keys named "ca.crt" which will be injected into the trust store
     # of registry's containers.
@@ -228,17 +228,17 @@ persistence:
     s3:
       # Set an existing secret for S3 accesskey and secretkey
       # keys in the secret should be REGISTRY_STORAGE_S3_ACCESSKEY and REGISTRY_STORAGE_S3_SECRETKEY for registry
-      #existingSecret: ""
+      existingSecret: "harbor-s3-creds"
       region: us-east-1
-      bucket: harbor-bucket-project
+      bucket: harbor-bucket-project-lab-aws
       #accesskey: awsaccesskey
       #secretkey: awssecretkey
-      #regionendpoint: http://myobjects.local
+      # regionendpoint: https://s3.us-east-1.amazonaws.com
       #encrypt: false
       #keyid: mykeyid
-      #secure: true
+      # secure: true
       #skipverify: false
-      #v4auth: true
+      # v4auth: true
       #chunksize: "5242880"
       #rootdirectory: /s3/object/name/prefix
       #storageclass: STANDARD
@@ -743,7 +743,7 @@ registry:
   # set the service account to be used, default if left empty
   serviceAccountName: "harbor-registry-sa"
   # mount the service account token
-  automountServiceAccountToken: false
+  automountServiceAccountToken: true
   replicas: 1
   revisionHistoryLimit: 10
   nodeSelector: {}
@@ -779,7 +779,7 @@ registry:
   # Key within the existing secret for the registry service secret
   existingSecretKey: REGISTRY_HTTP_SECRET
   # If true, the registry returns relative URLs in Location headers. The client is responsible for resolving the correct URL.
-  relativeurls: false
+  relativeurls: true
   credentials:
     username: "harbor_registry_user"
     password: "harbor_registry_password"
